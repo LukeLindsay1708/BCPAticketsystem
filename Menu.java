@@ -6,6 +6,7 @@ public class Menu {
         int menuChoice;
         Customer customer = new Customer();
         Event event = new Event();
+        AdminLogin adminLogin = new AdminLogin();
 
         do {
             displayMenu();
@@ -34,6 +35,9 @@ public class Menu {
                 case 5:
                     System.out.println("Exiting the menu");
                     break;
+                case 6:
+                    adminLogin(adminLogin);
+                    break;
                 default:
                     System.out.println("Invalid choice. Try again.");
             }
@@ -48,6 +52,16 @@ public class Menu {
         System.out.println("3. Events");
         System.out.println("4. Tickets and prices");
         System.out.println("5. Exit");
+        System.out.println("6. Admin Login");
         System.out.print("Please pick an option: ");
+    }
+
+    public static void adminLogin(AdminLogin adminLogin) {
+        if (adminLogin.login()) {
+            System.out.println("Admin Login successful!");
+            // Admin-specific functionalities go here
+        } else {
+            System.out.println("Admin Login failed. Please try again.");
+        }
     }
 }
